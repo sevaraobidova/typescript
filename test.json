@@ -1,0 +1,11 @@
+{
+  "officeId": 45,
+  "isOpened": true,
+  "contacts": {
+    "phone": "+98799778977628",
+    "email": "myoffice@gmail.com",
+    "address": {
+      "city": "Tashkent"
+    }
+  }
+}
