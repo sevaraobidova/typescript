@@ -296,10 +296,10 @@
 //   retired: true,
 // };
 
-interface Admin {
-  name: string;
-  role: number;
-}
+// interface Admin {
+//   name: string;
+//   role: number;
+// }
 
 // const admin: Admin = {
 //   ...user,
@@ -361,3 +361,49 @@ interface Admin {
 // const user = new User("Sevara");
 
 // console.log(user.fix);
+
+// 17.02.2024 practise**********************************************************************************
+class User {
+  constructor(
+    public readonly name: string,
+    public age: number,
+    private lang: string,
+    protected music: string
+  ) {}
+  public getAge() {
+    return `I'am ${this.name} and i'm ${this.age} years old`;
+  }
+}
+
+class Info extends User {
+  constructor(
+    public surname: string,
+    name: string,
+    age: number,
+    lang: string,
+    music: string
+  ) {
+    super(name, age, lang, music);
+  }
+}
+
+interface Someone {
+  name: string;
+  instrument: string;
+  play(action: string): string;
+}
+
+class AnotherOne implements Someone {
+  name: string;
+  instrument: string;
+  constructor(name: string, instrument: string) {
+    (this.name = name), (this.instrument = instrument);
+  }
+
+  play(action: string) {
+    return `${this.name}  ${action} best ${this.instrument}`;
+  }
+}
+
+const gitarist = new AnotherOne("Jim", "Guitar");
+console.log(gitarist.play("plays"));
