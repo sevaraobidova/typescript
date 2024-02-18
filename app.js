@@ -316,30 +316,113 @@
 // const user = new User("Sevara");
 // console.log(user.fix);
 // 17.02.2024 practise**********************************************************************************
+// class User {
+//   constructor(
+//     public readonly name: string,
+//     public age: number,
+//     private lang: string,
+//     protected music: string
+//   ) {}
+//   public getAge() {
+//     return `I'am ${this.name} and i'm ${this.age} years old`;
+//   }
+// }
+// class Info extends User {
+//   constructor(
+//     public surname: string,
+//     name: string,
+//     age: number,
+//     lang: string,
+//     music: string
+//   ) {
+//     super(name, age, lang, music);
+//   }
+// }
+// interface Someone {
+//   name: string;
+//   instrument: string;
+//   play(action: string): string;
+// }
+// class AnotherOne implements Someone {
+//   name: string;
+//   instrument: string;
+//   constructor(name: string, instrument: string) {
+//     (this.name = name), (this.instrument = instrument);
+//   }
+//   play(action: string) {
+//     return `${this.name}  ${action} best ${this.instrument}`;
+//   }
+// }
+// const gitarist = new AnotherOne("Jim", "Guitar");
+// console.log(gitarist.play("plays"));
+// 18.02.2024****************************************************************************************
+// class Person {
+//   private _age: number;
+//   private _name: string;
+//   private _surname: string;
+//   constructor(_age: number, _name: string, _surname: string) {
+//     this._age = _age;
+//     this._name = _name;
+//     this._surname = _surname;
+//   }
+//   public get age() {
+//     return this._age;
+//   }
+//   public set age(value: number) {
+//     if (value <= 0 || value >= 200) {
+//       throw new Error("This age is invalid");
+//     }
+//     this._age = value;
+//   }
+//   public get firstName() {
+//     return this._name;
+//   }
+//   public set firstName(value: string) {
+//     if (!value) {
+//       throw new Error("You have to write firstname");
+//     }
+//     this._name = value;
+//   }
+//   public get lastName() {
+//     return this._surname;
+//   }
+//   public set lastName(value: string) {
+//     if (!value) {
+//       throw new Error("You have to write surname");
+//     }
+//     this._surname = value;
+//   }
+// }
+// const user = new Person(24, "Sevara", "Obidova");
+// user.age = 22;
+// user.firstName = "Sevara";
+// user.lastName = "Obidova";
+// console.log(user.age);
+// class User {
+//   _login: string;
+//   _pasword: number;
+//   set getLogin(value: string) {
+//     if (!value) {
+//       throw new Error("You have to write login");
+//     }
+//     this._login = value;
+//   }
+// }
 class User {
-    constructor(name, age, lang, music) {
+    constructor(name) {
         this.name = name;
-        this.age = age;
-        this.lang = lang;
-        this.music = music;
-    }
-    getAge() {
-        return `I'am ${this.name} and i'm ${this.age} years old`;
     }
 }
-class Info extends User {
-    constructor(surname, name, age, lang, music) {
-        super(name, age, lang, music);
-        this.surname = surname;
+class NewUser extends Array {
+    getUser(name) {
+        return this.filter((u) => u.name === name);
+    }
+    toString() {
+        return this.map((u) => u.name).join(" ,");
     }
 }
-class AnotherOne {
-    constructor(name, instrument) {
-        (this.name = name), (this.instrument = instrument);
-    }
-    play(action) {
-        return `${this.name}  ${action} best ${this.instrument}`;
-    }
-}
-const gitarist = new AnotherOne("Jim", "Guitar");
-console.log(gitarist.play("plays"));
+const user = new NewUser();
+user.push(new User("Sevara"));
+user.push(new User("Olima"));
+user.push(new User("Hayot"));
+console.log(user.toString());
