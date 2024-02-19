@@ -408,21 +408,101 @@
 //     this._login = value;
 //   }
 // }
-class User {
-    constructor(name) {
-        this.name = name;
+// class User {
+//   name: string;
+//   constructor(name: string) {
+//     this.name = name;
+//   }
+// }
+// class NewUser extends Array<User> {
+//   getUser(name: string) {
+//     return this.filter((u) => u.name === name);
+//   }
+//   override toString(): string {
+//     return this.map((u) => u.name).join(" ,");
+//   }
+// }
+// const user = new NewUser();
+// user.push(new User("Sevara"));
+// user.push(new User("Olima"));
+// user.push(new User("Hayot"));
+// console.log(user.toString());
+// type DeliveryOptions = HomeDelivery | ShopDelivery;
+// class Product {
+//   constructor(
+//     public id: number | string,
+//     public name: string,
+//     public price: number
+//   ) {}
+// }
+// class Delivery {
+//   constructor(public date: Date) {}
+// }
+// class HomeDelivery extends Delivery {
+//   constructor(date: Date, public address: string) {
+//     super(date);
+//   }
+// }
+// class ShopDelivery extends Delivery {
+//   constructor(date: Date, public shopId: number) {
+//     super(new Date());
+//   }
+// }
+// class Cart {
+//   private products: Product[] = [];
+//   private delivery: DeliveryOptions;
+//   public addProduct(product: Product): void {
+//     this.products.push(product);
+//   }
+//   public deleteProduct(productid: number): void {
+//     this.products = this.products.filter((p: Product) => p.id !== productid);
+//   }
+//   public getSum(): number {
+//     return this.products
+//       .map((p: Product) => p.price)
+//       .reduce((p1: number, p2: number) => p1 + p2);
+//   }
+//   public setDelivery(delivery: DeliveryOptions) {
+//     this.delivery = delivery;
+//   }
+//   public checkOut() {
+//     if (this.products.length == 0) {
+//       throw new Error("there is no products selected");
+//     }
+//     if (!this.delivery) {
+//       throw new Error("there is no delivery");
+//     }
+//     return { success: true };
+//   }
+// }
+// const cart = new Cart();
+// cart.addProduct(new Product(1, "ice cream", 20));
+// cart.addProduct(new Product(2, "chocolote", 30));
+// cart.addProduct(new Product(3, "sweets", 40));
+// cart.addProduct(new Product(4, "laptop", 4000));
+// cart.deleteProduct(1);
+// cart.setDelivery(new ShopDelivery(new Date(), 34));
+// console.log(cart.getSum());
+// console.log(cart.checkOut());
+// class StaticClass {
+//   static Staname: string = "Sevara";
+//   static getName(): string {
+//     return `${this.Staname} is my name`;
+//   }
+// }
+// const my = new StaticClass();
+// console.log(StaticClass.Staname);
+// console.log(StaticClass.getName());
+class Base {
+    static getGreeting() {
+        return "Hello world";
     }
 }
-class NewUser extends Array {
-    getUser(name) {
-        return this.filter((u) => u.name === name);
-    }
-    toString() {
-        return this.map((u) => u.name).join(" ,");
+class Something extends Base {
+    constructor() {
+        super(...arguments);
+        this.mygreeting = Base.getGreeting();
     }
 }
-const user = new NewUser();
-user.push(new User("Sevara"));
-user.push(new User("Olima"));
-user.push(new User("Hayot"));
-console.log(user.toString());
+const something = new Something();
+console.log(something.mygreeting);
