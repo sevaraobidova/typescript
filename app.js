@@ -493,16 +493,57 @@
 // const my = new StaticClass();
 // console.log(StaticClass.Staname);
 // console.log(StaticClass.getName());
-class Base {
-    static getGreeting() {
-        return "Hello world";
+// class Base {
+//   static getGreeting() {
+//     return "Hello world";
+//   }
+// }
+// class Something extends Base {
+//   mygreeting = Base.getGreeting();
+// }
+// const something = new Something();
+// console.log(something.mygreeting);
+// class UseBuilder {
+//   name: string;
+//   setName(name: string): this {
+//     this.name = name;
+//     return this;
+//   }
+//   isAdmin(): boolean {
+//     return this instanceof AdminBuilder;
+//   }
+// }
+// class AdminBuilder extends UseBuilder {
+//   roles: string[];
+// }
+// const res = new UseBuilder().setName("sevara");
+// const res2 = new AdminBuilder().setName("Sevara");
+// let user: UseBuilder | AdminBuilder = new UseBuilder();
+// if (user instanceof AdminBuilder) {
+//   console.log(user);
+// } else {
+//   console.log(user);
+// }
+class Camera {
+    constructor(kamera, photo) {
+        this.kamera = kamera;
+        this.photo = photo;
+    }
+    getFilter() {
+        return 9;
     }
 }
-class Something extends Base {
-    constructor() {
-        super(...arguments);
-        this.mygreeting = Base.getGreeting();
+class Instagram extends Camera {
+    constructor(kamera, photo, filter) {
+        super(kamera, photo);
+        this.kamera = kamera;
+        this.photo = photo;
+        this.filter = filter;
+    }
+    getPhoto() {
+        console.log(this.kamera);
     }
 }
-const something = new Something();
-console.log(something.mygreeting);
+const insta = new Instagram("new camera", "mountain", 8);
+console.log(insta.getFilter.toString);
+console.log(insta.getPhoto.toString);

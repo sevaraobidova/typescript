@@ -576,3 +576,74 @@
 // }
 // const something = new Something();
 // console.log(something.mygreeting);
+
+// class UseBuilder {
+//   name: string;
+
+//   setName(name: string): this {
+//     this.name = name;
+//     return this;
+//   }
+
+//   isAdmin(): boolean {
+//     return this instanceof AdminBuilder;
+//   }
+// }
+
+// class AdminBuilder extends UseBuilder {
+//   roles: string[];
+// }
+
+// const res = new UseBuilder().setName("sevara");
+// const res2 = new AdminBuilder().setName("Sevara");
+
+// let user: UseBuilder | AdminBuilder = new UseBuilder();
+
+// if (user instanceof AdminBuilder) {
+//   console.log(user);
+// } else {
+//   console.log(user);
+// }
+
+// abstract class Camera {
+//   constructor(public kamera: string, public photo: string) {}
+//   abstract getPhoto(): void;
+
+//   getFilter(): number {
+//     return 9;
+//   }
+// }
+
+// class Instagram extends Camera {
+//   constructor(
+//     public kamera: string,
+//     public photo: string,
+//     public filter: number
+//   ) {
+//     super(kamera, photo);
+//   }
+//   getPhoto(): void {
+//     console.log(this.kamera);
+//   }
+// }
+
+// const insta = new Instagram("new camera", "mountain", 8);
+// console.log(insta.getFilter);
+// console.log(insta.getPhoto);
+
+abstract class Logger {
+  abstract log(message: string): void;
+  printDate(date: Date) {
+    console.log(date.toString());
+  }
+}
+
+class MyLogger extends Logger {
+  log(message: string): void {
+    console.log(message);
+  }
+  logWithDate(message: string) {
+    console.log(this.printDate(new Date()));
+    console.log(message);
+  }
+}
