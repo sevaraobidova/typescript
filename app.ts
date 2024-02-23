@@ -631,19 +631,40 @@
 // console.log(insta.getFilter);
 // console.log(insta.getPhoto);
 
-abstract class Logger {
-  abstract log(message: string): void;
-  printDate(date: Date) {
-    console.log(date.toString());
-  }
-}
+// abstract class Logger {
+//   abstract log(message: string): void;
+//   printDate(date: Date) {
+//     console.log(date.toString());
+//   }
+// }
 
-class MyLogger extends Logger {
-  log(message: string): void {
-    console.log(message);
-  }
-  logWithDate(message: string) {
-    console.log(this.printDate(new Date()));
-    console.log(message);
-  }
-}
+// class MyLogger extends Logger {
+//   log(message: string): void {
+//     console.log(message);
+//   }
+//   logWithDate(message: string) {
+//     console.log(this.printDate(new Date()));
+//     console.log(message);
+//   }
+// }
+
+// function flipCoin(): boolean {
+//   // Meant to be Math.random()
+//   return Math.random() < 0.5;
+// }
+
+// class User{
+
+// }
+
+// const user:Record<string,number>={
+//   age: 12,
+// }
+
+// function Fn(value1: number, value2: string): Array<string>{
+//   return []
+// }
+
+// function Fn<T>(value: T): T{
+
+// }
