@@ -699,23 +699,27 @@ const student1: IStudent = {
   name: "Sevara",
   age: 12,
 };
-type NewStudent = Omit<IStudent, "id">;
-type UpdatedStudent = Partial<IStudent>;
-type PickedStudent = Pick<IStudent, "id" | "name">;
+
+//used for omitting selected property of an object
+// type NewStudent = Omit<IStudent, "id">;
+
+//example:
+// const newstudent: NewStudent = {
+//   name: "Sevara",
+//   age: 12,
+// };
+
+//used for making the fields of object optional
+// type UpdatedStudent = Partial<IStudent>;
+//example:
+// const updatedstudent: UpdatedStudent = {
+//   name: "Hello",
+// };
+//used for picking just selected properties of an object
+// type PickedStudent = Pick<IStudent, "id" | "name">;
+//example:
+// const picked: PickedStudent = {
+//   id: "hello",
+//   name: "hello",
+// };
 // type RequiredStudent = Required<IStudent, "id" | "name">;
-
-const newstudent: NewStudent = {
-  name: "Sevara",
-  age: 12,
-};
-const updatedstudent: UpdatedStudent = {
-  name: "Hello",
-};
-
-const picked: PickedStudent = {
-  id: "hello",
-  name: "hello",
-};
-console.log(newstudent);
-console.log(student1);
-console.log(updatedstudent);
