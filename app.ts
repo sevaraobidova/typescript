@@ -668,3 +668,54 @@
 // function Fn<T>(value: T): T{
 
 // }
+
+// interface Location {
+//   long: string;
+//   lat: string;
+// // }
+// function parseLocation(arg1: unknown): Location;
+
+// function parseLocation(arg1: string, arg2?: string): Location;
+
+// function parseLocation(arg1, arg2?) {
+//   if (typeof arg1 === "object") {
+//     return { lang: arg1.lang, lat: arg1.lat };
+//   } else if (typeof arg1 === "string") {
+//     return { lang: arg1, lat: arg2 };
+//   }
+// }
+// console.log(parseLocation("hello", "hi"));
+// console.log(parseLocation({ lang: "hello", lat: "hi" }));
+//arg1 bitta string sifatida "lang: 10, lat: 12"
+
+interface IStudent {
+  id: string;
+  name: string;
+  age: number;
+}
+
+const student1: IStudent = {
+  id: "hello",
+  name: "Sevara",
+  age: 12,
+};
+type NewStudent = Omit<IStudent, "id">;
+type UpdatedStudent = Partial<IStudent>;
+type PickedStudent = Pick<IStudent, "id" | "name">;
+// type RequiredStudent = Required<IStudent, "id" | "name">;
+
+const newstudent: NewStudent = {
+  name: "Sevara",
+  age: 12,
+};
+const updatedstudent: UpdatedStudent = {
+  name: "Hello",
+};
+
+const picked: PickedStudent = {
+  id: "hello",
+  name: "hello",
+};
+console.log(newstudent);
+console.log(student1);
+console.log(updatedstudent);
