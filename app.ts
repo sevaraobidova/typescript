@@ -723,3 +723,23 @@ const student1: IStudent = {
 //   name: "hello",
 // };
 // type RequiredStudent = Required<IStudent, "id" | "name">;
+
+// Await type********************************************************************************************
+// It helps to handle promise
+// async function fetchData(): Promise<string> {
+//   const data = await fetch("https://fakestoreapi.com/products");
+//   return await data.text();
+// }
+
+// type Data = Awaited<Promise<string>>;
+
+// let myData: Data;
+
+// (async () => {
+//   try {
+//     myData = await fetchData();
+//     console.log(myData);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// })();
