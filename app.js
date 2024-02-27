@@ -1,15 +1,6 @@
 "use strict";
 // const a = 1;
 // console.log(a);
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 const student1 = {
     id: "hello",
     name: "Sevara",
@@ -37,19 +28,53 @@ const student1 = {
 // };
 // type RequiredStudent = Required<IStudent, "id" | "name">;
 // Await type********************************************************************************************
-function fetchData() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const data = yield fetch("https://fakestoreapi.com/products");
-        return yield data.text();
-    });
-}
-let myData;
-(() => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        myData = yield fetchData();
-        console.log(myData);
-    }
-    catch (err) {
-        console.log(err);
-    }
-}))();
+// It helps to handle promise
+// async function fetchData(): Promise<string> {
+//   const data = await fetch("https://fakestoreapi.com/products");
+//   return await data.text();
+// }
+// type Data = Awaited<Promise<string>>;
+// let myData: Data;
+// (async () => {
+//   try {
+//     myData = await fetchData();
+//     console.log(myData);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// })();
+// Partial - hamma typelani optional qiladi
+// type NewStudent = Partial<IStudent>;
+// const newStudent: NewStudent = {
+//   id: "hello",
+//   age: 23,
+// };
+// console.log(newStudent);
+// Required - hamma fieldsni majburiy qiladi, yana birorta ham field yozilmay qolishi mumkin emas.
+// type RequiredStudent = Required<IStudent>;
+// const requiredStudent: RequiredStudent = {
+//   id: "hello",
+//   age: 12,
+//   name: "Sevaar",
+// };
+// Readonly-bir marta value kiritilgandan keyin o'zgartirmaslik uchun ishlatiladi
+// type ReadOnlyStudent = Readonly<IStudent>;
+// const readOnlyStudent: ReadOnlyStudent = {
+//   id: "sevara",
+//   age: 12,
+//   name: "Sevara",
+// };
+// readOnlyStudent.name = "Sevarichka"; it gives error because we cant change name's value after giving it one in an object. and we can use it with frozen objects
+// console.log(readOnlyStudent);
+// Record - objectning konstruksiyasini o'zimiz xohlagan key va xohlagan valuedan qo'yishimiz uchun ishlatiladi
+const newStudent = {
+    hello: 12,
+    12: 15,
+};
+console.log(newStudent);
+const newuser = {
+    miffy: { id: "nm", name: "sevara", age: 12 },
+    boris: { id: "nm", name: "sevara", age: 12 },
+    mordred: { id: "nm", name: "sevara", age: 12 },
+};
+console.log(newuser);

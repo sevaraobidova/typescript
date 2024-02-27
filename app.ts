@@ -743,3 +743,48 @@ const student1: IStudent = {
 //     console.log(err);
 //   }
 // })();
+// Partial - hamma typelani optional qiladi
+// type NewStudent = Partial<IStudent>;
+
+// const newStudent: NewStudent = {
+//   id: "hello",
+//   age: 23,
+// };
+// console.log(newStudent);
+// Required - hamma fieldsni majburiy qiladi, yana birorta ham field yozilmay qolishi mumkin emas.
+
+// type RequiredStudent = Required<IStudent>;
+// const requiredStudent: RequiredStudent = {
+//   id: "hello",
+//   age: 12,
+//   name: "Sevaar",
+// };
+// Readonly-bir marta value kiritilgandan keyin o'zgartirmaslik uchun ishlatiladi
+
+// type ReadOnlyStudent = Readonly<IStudent>;
+// const readOnlyStudent: ReadOnlyStudent = {
+//   id: "sevara",
+//   age: 12,
+//   name: "Sevara",
+// };
+
+// readOnlyStudent.name = "Sevarichka"; it gives error because we cant change name's value after giving it one in an object. and we can use it with frozen objects
+// console.log(readOnlyStudent);
+
+// Record - objectning konstruksiyasini o'zimiz xohlagan key va xohlagan valuedan qo'yishimiz uchun ishlatiladi
+// const newStudent: Record<string, number> = {
+//   hello: 12,
+//   12: 15,
+// };
+// console.log(newStudent);
+// interface CatInfo {
+//   age: number;
+//   breed: string;
+// }
+// type CatName = "miffy" | "boris" | "mordred";
+// const newuser: Record<CatName, IStudent> = {
+//   miffy: { id: "nm", name: "sevara", age: 12 },
+//   boris: { id: "nm", name: "sevara", age: 12 },
+//   mordred: { id: "nm", name: "sevara", age: 12 },
+// };
+// console.log(newuser);
